@@ -1,0 +1,94 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.visible-on{
+    display: flex;  
+    height: 80vh;
+    width: 100%;  
+}
+.visible-off{
+    display: none;  
+}
+.flex{
+    display: flex;
+}
+/* HEADER */
+.nav-style{
+    justify-content: space-between;
+    background-color: rgba(4, 45, 122, 0.836);
+    height: 10vh;
+    width: 100%;
+}
+.title-nav{
+    color: rgb(5, 5, 5);
+    margin: 20px;
+}
+.nav-btn-style{
+    background-color: transparent;
+    margin-right: 1.5rem;
+    border: none;
+    cursor: pointer;
+}
+.btn-img-size{
+    height: 60%;
+}
+.btn-img-size:hover{
+    filter: invert(100%);
+}
+/* MAIN */
+/* * HACER TAREAS * */
+.center-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-size{
+    width: 25rem;
+    height: 60vh;
+}
+.legend-center{
+    text-align: center;
+    font-weight: 600;
+}
+.img-fieldset{
+    width: 4rem;
+}
+.column{
+    flex-direction: column;
+}
+.title-form{
+    margin: 4% auto;
+}
+.txt-time{
+    text-align: center;
+}
+.label-style{
+    margin: 0% 5%;
+    font-weight: 600;
+}
+.input-style{
+    width: 90%;
+    margin: 2% 5%;
+}
+.box-radio{
+    justify-content: space-evenly;
+    padding: 1.5% 0%;
+}
+.box-comments{
+   padding: 5%;
+}
+.btn-style{
+    width: 40%;
+    margin: 3% auto;
+}
+/* * VER TAREAS * */
+/* FOOTER */
+.footer-style{
+    justify-content: space-between;
+    background-color: rgba(4, 45, 122, 0.836);
+    height: 10vh;
+    width: 100%;
+}
