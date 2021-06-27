@@ -12,48 +12,53 @@
     <header class="flex nav-style">
         <h1 class="title-nav">To-Do List</h1>
         <nav class="flex box-button">
-            <button class="nav-btn-style">
+            <button class="btn-nav nav-btn-style">
                 <img class="btn-img-size" src="img/form2.svg" alt="Make-Task">
             </button>
-            <button class="nav-btn-style">
+            <button class="btn-nav nav-btn-style">
                 <img class="btn-img-size" src="img/tareas.svg" alt="Task">
             </button>
         </nav>
     </header>
     <main>
-        <section id="make-task" class="visible-on center-page">
-            <form class="form-size">
+        <section id="make-task" class="visible center-page">
+            <div class="form-size">
                 <fieldset class="flex column">
                     <legend class="legend-center">
                         <img class="img-fieldset" src="img/form2.svg" alt="To-Do List">
                     </legend>
                     <h2 class="title-form">Por hacer</h2>
-                    <label class="label-style" for="">Titulo</label>
-                    <input class="input-style" type="text" name="" id="">
-                    <label class="label-style" for="">Hora</label>
-                    <input class="input-style txt-time" type="time" name="" id="">
+                    <label class="label-style" for="title">Titulo</label>
+                    <input class="input-style" type="text" name="title" id="title">
+                    <p class="hidden msg-error">Ingrese un titulo</p>
+                    <label class="label-style" for="time">Hora</label>
+                    <input class="input-style txt-time" type="time" name="time" id="time">
+                    <p class="hidden msg-error">Ingrese una hora</p>
                     <fieldset class="flex input-style box-radio">
                         <legend class="legend-center">Prioridad</legend>
                         <p>
-                            <input type="radio" name="" id="">
-                            <label for="">Alta</label>
+                            <input type="radio" name="priority" class="btn-priority high-p">
+                            <label for="priority">Alta</label>
                         </p>
                         <p>
-                            <input type="radio" name="" id="">
-                            <label for="">Media</label>
+                            <input type="radio" name="priority" class="btn-priority medium-p">
+                            <label for="priority">Media</label>
                         </p>
                         <p>
-                            <input type="radio" name="" id="">
-                            <label for="">Baja</label>
+                            <input type="radio" name="priority" class="btn-priority low-p">
+                            <label for="priority">Baja</label>
                         </p>
                     </fieldset>
-                    <label class="label-style" for="">Comentarios</label>
-                    <input class="input-style box-comments" type="text" name="" id="">
-                    <button class="btn-style">Guardar</button>
+                    <p class="hidden msg-error">Seleccione el tipo de prioridad</p>
+                    <label class="label-style" for="comments">Comentarios</label>
+                    <input class="input-style box-comments" type="text" name="comment" id="comment">
+                    <p class="hidden msg-error">Explique la tarea</p>
+                    <p id="msg-save" class="hidden msg-save" >Tarea guardada</p>
+                    <button id="save" class="btn-style">Guardar</button>
                 </fieldset>
-            </form>
+            </div>
         </section>
-        <section id="view-task" class="visible-off">
+        <section id="view-task" class="hidden">
                 <p>hola</p>
         </section>
     </main>

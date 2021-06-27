@@ -4,14 +4,12 @@
     box-sizing: border-box;
 }
 
-.visible-on{
+.visible{
     display: flex;  
     height: 80vh;
     width: 100%;  
 }
-.visible-off{
-    display: none;  
-}
+
 .flex{
     display: flex;
 }
@@ -47,7 +45,7 @@
 }
 .form-size{
     width: 25rem;
-    height: 60vh;
+    height: 75vh;
 }
 .legend-center{
     text-align: center;
@@ -72,17 +70,47 @@
 .input-style{
     width: 90%;
     margin: 2% 5%;
+    padding: 1.5%;
 }
+
 .box-radio{
     justify-content: space-evenly;
     padding: 1.5% 0%;
 }
 .box-comments{
-   padding: 5%;
+   padding: 4.5%;
 }
 .btn-style{
     width: 40%;
     margin: 3% auto;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #018dc4;
+    border-radius: 3px;
+    font: normal medium/normal Arial, Helvetica, sans-serif;
+    color: rgba(255,255,255,0.9);
+    background: #0199d9;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+    text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+}
+.btn-style:hover {
+    border: 1px solid #007cad;
+    background: rgba(0,142,198,1);
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.3) ;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.3) ;
+  }
+.msg-error{
+    margin: 0% auto;
+    color: red;
+    font:  medium/normal Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+}
+.msg-save{
+    color: rgb(16, 148, 38);
+    font:  medium/normal Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0% auto;
 }
 /* * VER TAREAS * */
 /* FOOTER */
@@ -91,4 +119,8 @@
     background-color: rgba(4, 45, 122, 0.836);
     height: 10vh;
     width: 100%;
+}
+
+.hidden{
+    display: none;  
 }
