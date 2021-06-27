@@ -58,8 +58,22 @@
                 </fieldset>
             </div>
         </section>
-        <section id="view-task" class="hidden">
-                <p>hola</p>
+        <section id="view-task" class="hidden center-page">
+            <div class="visual-size">
+                <fieldset class="flex column padding-task">
+                    <legend class="legend-center">
+                        <img class="img-fieldset" src="img/tareas.svg" alt="To-Do List">
+                    </legend>
+                    <select class="select-width">
+                        <option class="op-filter" value="topToLow">De Alta a Baja</option>
+                        <option class="op-filter" value="lowToTop">De Baja a Alta</option>
+                        <option class="op-filter" value="high">Solo Altas</option>
+                        <option class="op-filter" value="medium">Solo Medias</option>
+                        <option class="op-filter" value="low">Solo Bajas</option>
+                    </select>
+                    <div id="container-task" class="grid"></div>
+                </fieldset>
+            </div>
         </section>
     </main>
     <footer class="footer-style"></footer>

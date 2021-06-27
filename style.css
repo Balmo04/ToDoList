@@ -6,7 +6,7 @@
 
 .visible{
     display: flex;  
-    height: 80vh;
+    height: 86vh;
     width: 100%;  
 }
 
@@ -113,11 +113,60 @@
     margin: 0% auto;
 }
 /* * VER TAREAS * */
+.padding-task{
+    padding: 1%;
+}
+.visual-size{
+    width: 100vw;
+    height: 70vh;
+}
+.select-width{
+    width: 10rem;
+    margin: 2% auto;
+}
+.grid{
+    display: grid;
+    height: 50vh;
+    overflow-y: scroll;
+    grid-template-columns: repeat(auto-fill, 280px);
+    grid-template-rows: repeat(auto-fill, 150px);
+    column-gap: 20px;
+    row-gap: 10px;
+    width: 100%;
+}
+.border-task{
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 25px;
+}
+.task-type-style{
+    justify-content: space-around;
+    padding: 8px;
+}
+.task-title-style{
+    text-align: center;
+}
+.task-description-style{
+    text-align: center;
+    padding: 0.4rem 1rem;
+}
+.bg-high{
+    background-color: #005f73; 
+    border-radius: 23px 23px 0px 0px;      
+}
+.bg-medium{
+    background-color: #0a9396;  
+    border-radius: 23px 23px 0px 0px;  
+}
+.bg-low{
+    background-color: #94d2bd;
+    border-radius: 23px 23px 0px 0px;  
+}
+
 /* FOOTER */
 .footer-style{
     justify-content: space-between;
     background-color: rgba(4, 45, 122, 0.836);
-    height: 10vh;
+    height: 4vh;
     width: 100%;
 }
 
