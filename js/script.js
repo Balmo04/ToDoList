@@ -104,7 +104,7 @@ function imprintTask(title, time, priority, comment){
    switch (priority){
         case 0:
            containerTask.innerHTML+=`
-           <div class="border-task">
+           <div class="task-high-priority task-list border-task">
                 <hgroup class="bg-high flex task-type-style">
                     <h4>${time}</h4>
                     <h4>Alta</h4>
@@ -118,7 +118,7 @@ function imprintTask(title, time, priority, comment){
            break;
         case 1:
             containerTask.innerHTML+=`
-            <div class="border-task">
+            <div class="task-medium-priority task-list border-task">
             <hgroup class="bg-medium flex task-type-style">
                 <h4>${time}</h4>
                 <h4>Media</h4>
@@ -132,7 +132,7 @@ function imprintTask(title, time, priority, comment){
             break;
         case 2:
                 containerTask.innerHTML+=`
-                <div class="border-task">
+                <div class="task-low-priority task-list border-task">
                 <hgroup class="bg-low flex task-type-style">
                     <h4>${time}</h4>
                     <h4>Baja</h4>
