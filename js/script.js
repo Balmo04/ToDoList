@@ -18,6 +18,7 @@ const containerTask = document.getElementById("container-task");
 
 let positionRadio;
 
+
 for (let i = 0; i < btnNav.length; i++) {
    btnNav[i].addEventListener("click", function(){
     if(!i){
@@ -35,7 +36,7 @@ btnTask.addEventListener("click", function(){
     let isContent = validateInputs();
     let isSelected = pressRadioButton();
     if(isContent && isSelected){ 
-        saveMessage(taskName.value, taskTime.value, positionRadio, taskComment.value);
+        imprintTask(taskName.value, taskTime.value, positionRadio, taskComment.value);
         msgSave.classList.replace("hidden", "flex");
         setTimeout(()=>{  
             resetForm()
@@ -83,11 +84,6 @@ function pressRadioButton(){
             msgError[2].classList.replace("hidden", "flex"); 
         }  
     }
-}
-
-function saveMessage(title, time, priority, comment){
-    imprintTask(title, time, priority, comment);
-   
 }
 
 function resetForm(){

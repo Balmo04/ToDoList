@@ -129,7 +129,7 @@
     height: 50vh;
     overflow-y: scroll;
     grid-template-columns: repeat(auto-fill, 280px);
-    grid-template-rows: repeat(auto-fill, 150px);
+    grid-template-rows: repeat(auto-fill);
     column-gap: 20px;
     row-gap: 10px;
     width: 100%;
