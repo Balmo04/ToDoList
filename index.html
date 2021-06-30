@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/reloj.svg">
 </head>
+
 <body>
     <header class="flex nav-style">
         <h1 class="title-nav">To-Do List</h1>
@@ -53,7 +55,7 @@
                     <label class="label-style" for="comments">Comentarios</label>
                     <input class="input-style box-comments" type="text" name="comment" id="comment">
                     <p class="hidden msg-error">Explique la tarea</p>
-                    <p id="msg-save" class="hidden msg-save" >Tarea guardada</p>
+                    <p id="msg-save" class="hidden msg-save">Tarea guardada</p>
                     <button id="save" class="btn-style">Guardar</button>
                 </fieldset>
             </div>
@@ -65,21 +67,87 @@
                         <img class="img-fieldset" src="img/tareas.svg" alt="To-Do List">
                     </legend>
                     <select id="op-selector" class="select-width">
-                        <option class="op-filter" value="topToLow">De Alta a Baja</option>
-                        <option class="op-filter" value="lowToTop">De Baja a Alta</option>
+                        <option class="op-filter" value="highToLow">De Alta a Baja</option>
+                        <option class="op-filter" value="lowToHigh">De Baja a Alta</option>
                         <option class="op-filter" value="high">Solo Altas</option>
                         <option class="op-filter" value="medium">Solo Medias</option>
                         <option class="op-filter" value="low">Solo Bajas</option>
                     </select>
                     <div id="container-task" class="grid">
                         <!-- PAra quemar una tarea -->
+                        <div class="task-high-priority task-list border-task">
+                            <hgroup class="bg-high flex task-type-style">
+                                <h4 class="time-text">01:31</h4>
+                                <h4 class="priority-text">Alta</h4>
+                            </hgroup>
+                            <article>
+                                <h2 class="task-title-style">asdf</h2>
+                                <p class="task-description-style">asdf</p>
+                            </article>
+                        </div>
+
+                        <div class="task-medium-priority task-list border-task">
+                            <hgroup class="bg-medium flex task-type-style">
+                                <h4 class="time-text">14:05</h4>
+                                <h4 class="priority-text">Media</h4>
+                            </hgroup>
+                            <article>
+                                <h2 class="task-title-style">asdfasd</h2>
+                                <p class="task-description-style">asdf</p>
+                            </article>
+                        </div>
+
+                        <div class="task-low-priority task-list border-task">
+                            <hgroup class="bg-low flex task-type-style">
+                                <h4 class="time-text">02:41</h4>
+                                <h4 class="priority-text">Baja</h4>
+                            </hgroup>
+                            <article>
+                                <h2 class="task-title-style">asdf</h2>
+                                <p class="task-description-style">asdf</p>
+                            </article>
+                        </div>
+
+                        <div class="task-high-priority task-list border-task">
+                            <hgroup class="bg-high flex task-type-style">
+                                <h4 class="time-text">12:31</h4>
+                                <h4 class="priority-text">Alta</h4>
+                            </hgroup>
+                            <article>
+                                <h2 class="task-title-style">asdf</h2>
+                                <p class="task-description-style">asdf</p>
+                            </article>
+                        </div>
+
+                        <div class="task-medium-priority task-list border-task">
+                            <hgroup class="bg-medium flex task-type-style">
+                                <h4 class="time-text">23:05</h4>
+                                <h4 class="priority-text">Media</h4>
+                            </hgroup>
+                            <article>
+                                <h2 class="task-title-style">asdfasd</h2>
+                                <p class="task-description-style">asdf</p>
+                            </article>
+                        </div>
+
+                        <div class="task-low-priority task-list border-task">
+                            <hgroup class="bg-low flex task-type-style">
+                                <h4 class="time-text">15:41</h4>
+                                <h4 class="priority-text">Baja</h4>
+                            </hgroup>
+                            <article>
+                                <h2 class="task-title-style">asdf</h2>
+                                <p class="task-description-style">asdf</p>
+                            </article>
+                        </div>
                     </div>
                 </fieldset>
             </div>
         </section>
     </main>
     <footer class="footer-style"></footer>
-   <script src="js/script.js"></script>
-   <script src="js/filter.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/filter.js"></script>
 </body>
+
 </html>

@@ -2,118 +2,156 @@
 const lowCategority = document.getElementsByClassName("task-low-priority");
 const mediumCategority = document.getElementsByClassName("task-medium-priority");
 const highCateority = document.getElementsByClassName("task-high-priority");
-const taskList = document.getElementsByClassName("task-list");
+
 /* Seleccionar la categoria */
 const opSelect = document.getElementById("op-selector");
 const filter = document.getElementsByClassName("op-filter");
 /* Array para ordenar */
 let indicatePriority;
-let timeValue=[];
+let timeValue = [];
+let taskAux = [];
 
-opSelect.addEventListener("click", function(){
-    if(opSelect.value===filter[0].value){
-        timeValue=getTime();
-        showAllCategory();
-        getTypeCategory();
-        orderTopToLow();
+let taskList;
+
+class taskObject {
+    constructor(priority, time, position) {
+        this.priority = priority;
+        this.time = time;
+        this.position = position;
     }
-    if(opSelect.value===filter[1].value){
-        showAllCategory();
-        getTypeCategory()
+}
+opSelect.addEventListener("click", function () {
+    taskList = document.getElementsByClassName("task-list");
+    createObjectTask();
+    showAllCategory();
+    let positions = orderTask(taskAux, "time");
+    showByOrder(positions);
+    if(opSelect.value==="highToLow" || opSelect.value==="lowToHigh"){
+
     }
-    if(opSelect.value===filter[2].value)
-    {
-        showHighCategory();
-        hiddenMediumCategory(); 
-        hiddenLowCategory();   
-    }
-    if(opSelect.value===filter[3].value)
-    {
-        showMediumCategory();
-        hiddenHighCategory();
-        hiddenLowCategory();
-    }
-    if(opSelect.value===filter[4].value)
-    {
-        showLowCategory();
-        hiddenHighCategory();
-        hiddenMediumCategory();
+    else {
+        let priorityFilter;
+        switch(opSelect.value){
+            case "high":
+                priorityFilter=0;
+                break;
+            case "medium":
+                priorityFilter=1;
+                break;
+            case "low":
+                priorityFilter=2;
+                break;
+        }
+        showByPriority(priorityFilter);
     }
 });
 /*MOSTRAR */
-function showHighCategory(){
-    for (let i = 0; i < highCateority.length; i++) {
-        highCateority[i].classList.remove("hidden");
+function createObjectTask() {
+    for (let i = 0; i < taskList.length; i++) {
+        let priority = taskList[i].querySelector(".priority-text");
+        let time = taskList[i].querySelector(".time-text");
+        const position = i;
+        priority = priority.innerText;
+        time = time.innerText;
+        time = getTime(time);
+        priority = getPriorityNumber(priority);
+        taskAux[i] = new taskObject(priority, time, position);
     }
 }
 
-function showMediumCategory(){
-    for (let i = 0; i < mediumCategority.length; i++) {
-        mediumCategority[i].classList.remove("hidden");
-    }
-}
-
-function showLowCategory(){
-    for (let i = 0; i < lowCategority.length; i++) {
-        lowCategority[i].classList.remove("hidden");
-    }
-}
-
-function showAllCategory(){
+function showAllCategory() {
     for (let i = 0; i < taskList.length; i++) {
         taskList[i].classList.remove("hidden")
     }
 }
 
-/*OCULTAR */
-function hiddenHighCategory(){
-    for (let i = 0; i < highCateority.length; i++) {
-        highCateority[i].classList.add("hidden");
+function showByPriority(filter){
+    for (let i = 0; i < taskAux.length; i++) {
+       if(taskAux[i].priority!==filter){
+            taskList[i].classList.add("hidden");
+       }   
     }
 }
-
-function hiddenMediumCategory(){
-    for (let i = 0; i < mediumCategority.length; i++) {
-        mediumCategority[i].classList.add("hidden");
+function showByOrder(position){
+    let aux = [];
+    for (let i = 0; i < taskList.length; i++) {
+        aux[i]=taskList[i].innerHTML;        
+    }
+    for (let j = 0; j < taskList.length; j++) {
+        taskList[j].innerHTML=aux[position[j]];
     }
 }
-
-function hiddenLowCategory(){
-    for (let i = 0; i < lowCategority.length; i++) {
-        lowCategority[i].classList.add("hidden");
-    }
-}
-
 
 /*OTRAS FUNCIONES */
 
-function getTypeCategory(){
+function getTypeCategory() {
     for (let i = 0; i < taskList.length; i++) {
-        if(taskList[i].classList.contains("task-high-priority")){
-            taskList[i].value=0;
-        }  
-        if(taskList[i].classList.contains("task-medium-priority")){
-            taskList[i].value=1;
-        }  
-        if(taskList[i].classList.contains("task-low-priority")){
-            taskList[i].value=2; 
-        }  
+        if (taskList[i].classList.contains("task-high-priority")) {
+            taskList[i].value = 0;
+        }
+        if (taskList[i].classList.contains("task-medium-priority")) {
+            taskList[i].value = 1;
+        }
+        if (taskList[i].classList.contains("task-low-priority")) {
+            taskList[i].value = 2;
+        }
     }
 }
 
-function orderTopToLow(){
-   
+function orderTopToLow() {
+
 }
 
 
-function getTime(time){
+function getTime(time) {
     let hour, min, aux;
-    for (let i = 0; i < time.length; i++) {
-        aux = time[i];
-        aux = aux.replace(":","");
-        hour = Number(aux.substrig(0,2));
-        min = Number(aux.substrig(2,5));
-        timeValue[i]= hour*100+minutes
+    time = time.replace(":", "");
+    hour = Number(time.substring(0, 2));
+    min = Number(time.substring(2, 5));
+    aux = hour * 100 + min;
+    return aux;
+}
+
+function getPriorityNumber(text) {
+    let num;
+    switch (text) {
+        case "Alta":
+            num = 0;
+            break;
+        case "Media":
+            num = 1;
+            break;
+        case "Baja":
+            num = 2;
+            break;
     }
-    return timeValue;
+    return num;
+}
+
+function orderTask(objectArray, condition){
+    let arrayToOrder = []; 
+    let positions = [];
+    let aux, aux2;
+    for (let i = 0; i < objectArray.length; i++) {
+        positions[i] = objectArray[i].position;
+        if(condition === "time"){
+            arrayToOrder[i] = objectArray[i].time;
+        }
+        else{
+            arrayToOrder[i] = objectArray[i].priority;   
+        }
+    }
+    for (let j = 1; j < arrayToOrder.length; j++) {
+        for(let k=0; k <(arrayToOrder.length-j); k++){
+            if(arrayToOrder[k]>arrayToOrder[k+1]){
+                aux=arrayToOrder[k];
+                arrayToOrder[k]=arrayToOrder[k+1];
+                arrayToOrder[k+1]=aux;
+                aux2=positions[k];
+                positions[k]=positions[k+1];
+                positions[k+1]=aux2;
+            }
+        }
+    }
+  return positions;
 }
