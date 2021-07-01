@@ -21,17 +21,38 @@ class taskObject {
     }
 }
 opSelect.addEventListener("click", function () {
+    let value = opSelect.value;
     taskList = document.getElementsByClassName("task-list");
     createObjectTask();
     showAllCategory();
     let positions = orderTask(taskAux, "time");
     showByOrder(positions);
-    if(opSelect.value==="highToLow" || opSelect.value==="lowToHigh"){
-
+    taskList = document.getElementsByClassName("task-list");
+    createObjectTask();
+    if(value==="highToLow" || value==="lowToHigh"){
+        if(value==="lowToHigh"){
+           for (let i = 0; i < taskAux.length; i++) {
+                switch (taskAux[i].priority){
+                    case 0:
+                        taskAux[i].priority = 2;
+                        break;
+                    case 1:
+                        taskAux[i].priority = 1;
+                        break;
+                    case 2:
+                        taskAux[i].priority = 0;
+                        break;
+                } 
+           }
+        }
+        positions = orderTask(taskAux, "priority");
+        showByOrder(positions);
+        taskList = document.getElementsByClassName("task-list");
+        createObjectTask();
     }
     else {
         let priorityFilter;
-        switch(opSelect.value){
+        switch(value){
             case "high":
                 priorityFilter=0;
                 break;
@@ -44,7 +65,9 @@ opSelect.addEventListener("click", function () {
         }
         showByPriority(priorityFilter);
     }
+    console.log(value);
 });
+
 /*MOSTRAR */
 function createObjectTask() {
     for (let i = 0; i < taskList.length; i++) {
@@ -97,11 +120,6 @@ function getTypeCategory() {
         }
     }
 }
-
-function orderTopToLow() {
-
-}
-
 
 function getTime(time) {
     let hour, min, aux;

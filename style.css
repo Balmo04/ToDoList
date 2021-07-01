@@ -129,10 +129,13 @@
     height: 50vh;
     overflow-y: scroll;
     grid-template-columns: repeat(auto-fill, 280px);
-    grid-template-rows: repeat(auto-fill);
     column-gap: 20px;
     row-gap: 10px;
     width: 100%;
+    align-items: flex-start;   
+}
+.task-list{
+    min-height: 150px;
 }
 .border-task{
     border: rgb(0, 0, 0) 2px solid;
